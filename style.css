@@ -1,0 +1,61 @@
+@font-face{
+    font-family: Raleway;
+    src: url("resources/fonts/releway/Raleway-VariableFont_wght.ttf")
+}
+
+body{
+    margin: 0px;
+}
+.welcome{
+    width: 100%;
+    height: 30vh;
+    background-color: grey;
+    text-align: center;
+}
+.welcome img{
+    height: 20vh;
+    width: auto;
+    margin-top: 5vh;
+}
+header{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(86, 86, 86);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Raleway, 'Times New Roman', Times, serif;
+    font-size: 2em;
+}
+header img{
+    margin: 0px 10px;
+    height: 80%;
+    width: auto;
+}
+header nav{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav div{
+    height: 100%;
+    padding: 0px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+header nav div:hover{
+    box-shadow: inset 0 -2px white;
+    cursor: pointer;
+}
+header .basket{
+    width: 50px;
+}
+.mainPage{
+    height: 5000px;
+    background-color: grey;
+}
