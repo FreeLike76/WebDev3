@@ -67,18 +67,59 @@ header .basket{
     justify-content: center;
     align-items: center;
     font-size: 0.8em;
-    filter: opacity(1);
 }
 header .basket:hover{
     cursor: pointer;
     box-shadow: inset 0 -2px black;
 }
-header .basket img{
+header .basket div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.4em;
+}
+header .basket div img{
     filter: opacity(1);
-    height: 1em;
+    height: 1.6em;
     width: auto;
 }
+
+
 .mainPage{
-    height: 5000px;
+    height: 1000px;
     background-color: white;
+}
+
+
+footer{
+    width: 100%;
+    padding: 10px 0px;
+    background: -moz-linear-gradient(rgb(204, 205, 198),rgb(125, 126, 122));
+    background: linear-gradient(rgb(204, 205, 198),rgb(125, 126, 122));
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: space-around;
+}
+footer .bottomCard{
+    width: 225px;
+    height: auto;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-family: Raleway, 'Times New Roman', Times, serif;
+    font-size: 1.25em;
+}
+footer .bottomCard list{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-size: 1em;
+}
+footer .bottomCard list li img{
+    height: 1em;
+    width: auto;
 }
