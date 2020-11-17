@@ -33,13 +33,17 @@ header{
     font-family: Raleway, 'Times New Roman', Times, serif;
     font-size: 2rem;
 }
-header img{
+header #headerLogo{
     margin: 0px 10px;
     height: 80%;
-    filter: opacity(0);
+    opacity: 0;
 }
-.fullHeader img{
-    filter: opacity(1);
+.fullHeader{
+    box-shadow: inset 0 -1px black;
+    transition-duration: 1s;
+}
+.fullHeader #headerLogo{
+    opacity: 1;
     transition-duration: 1s;
 }
 header nav{
@@ -86,9 +90,29 @@ header .basket div img{
 }
 
 
-.mainPage{
-    height: 1000px;
-    background-color: white;
+#mainPage{
+    padding: 25px 0px;
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+    font-family: Raleway, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+#mainPage h1{
+    margin: 0px 0px 25px 0px;
+}
+#optionalMenu{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: space-around;
+}
+#optionalMenu .productCard{
+    width: 300px;
+    height: 300px;
+    padding: 25px;
+    margin: 25px;
+    background-color: rgb(204, 205, 198);
+    box-shadow: 2px 2px gray;
 }
 
 
@@ -97,6 +121,7 @@ footer{
     padding: 10px 0px;
     background: -moz-linear-gradient(rgb(204, 205, 198),rgb(125, 126, 122));
     background: linear-gradient(rgb(204, 205, 198),rgb(125, 126, 122));
+    box-shadow: inset 0 1px black;
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     justify-content: space-around;
@@ -118,6 +143,9 @@ footer .bottomCard list{
     flex-direction: column;
     justify-content: start;
     font-size: 1em;
+}
+footer .bottomCard list li:hover{
+    cursor: pointer;
 }
 footer .bottomCard list li img{
     height: 1em;
