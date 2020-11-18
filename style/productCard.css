@@ -1,10 +1,4 @@
-#optionalMenu{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 500px);
-    justify-content: space-around;
-}
-#optionalMenu .productCard{
+.productCard{
     width: 400px;
     height: 200px;
     padding: 25px;
@@ -15,20 +9,20 @@
     justify-content: space-around;
     align-items: center;
 }
-#optionalMenu .productCard:hover{
+.productCard:hover{
     cursor: pointer;
 }
-#optionalMenu .productCard div{
+.productCard div{
     height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
-#optionalMenu .productCard div p{
+.productCard div p{
     margin: 0px;
 }
-#optionalMenu .productCard div ul{
+.productCard div ul{
     padding: 0px 0px 0px 20px;
     display: flex;
     flex-direction: column;
