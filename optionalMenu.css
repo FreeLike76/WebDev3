@@ -1,0 +1,38 @@
+#optionalMenu{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 500px);
+    justify-content: space-around;
+}
+#optionalMenu .productCard{
+    width: 400px;
+    height: 200px;
+    padding: 25px;
+    margin: 25px;
+    background-color: rgb(204, 205, 198);
+    box-shadow: 2px 2px gray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#optionalMenu .productCard:hover{
+    cursor: pointer;
+}
+#optionalMenu .productCard div{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#optionalMenu .productCard div p{
+    margin: 0px;
+}
+#optionalMenu .productCard div ul{
+    padding: 0px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    font-size: 0.8em;
+}

@@ -9,6 +9,7 @@
         <meta name="theme-color" content="#ffffff">
         <title>New York Street Pizza</title>
         <link href="style.css" rel="stylesheet">
+        <link href="optionalMenu.css" rel="stylesheet">
     </head>
     <body>
         <div class="welcome">
@@ -17,15 +18,14 @@
         <header>
                 <img id="headerLogo"src="resources/biglogo/biglogo_b.png" alt="logo black">
                 <nav>
+                    <div><a>New</a></div>
                     <div><a>Menu</a></div>
-                    <div><a>Special Offer</a></div>
                     <div><a>Reviews</a></div>
                     <div><a>About</a></div>
                 </nav>
                 <div class="basket">
                     <div>
-                        <span id="orderCount">3</span>
-                        <img src="resources/otherpng/cart.png" alt="cart image">
+                        <span id="orderCount">2</span>
                     </div>
                     <span id="orderValue">20$</span>
                 </div>
@@ -34,7 +34,20 @@
         <div id="mainPage">
             <h1>Menu</h1>
             <div id="optionalMenu">
-                <div class="productCard"></div>
+                <div class="productCard">
+                    <img>
+                    <div>
+                        <p>Amazonia</p>
+                        <ul>
+                            <li>Pasta</li>
+                            <li>Mozzarella</li>
+                            <li>Meatee</li>
+                            <li>Mushrooms</li>
+                            <li>Meatee</li>
+                            <li>...</li>
+                        <ul>
+                    </div>
+                </div>
                 <div class="productCard"></div>
                 <div class="productCard"></div>
                 <div class="productCard"></div>
@@ -58,42 +71,42 @@
         <footer>
             <div class="bottomCard">
                 <h3>Navigation</h3>
-                <list>
+                <ul>
+                <li><a>New</a></li>
                 <li><a>Menu</a></li>
-                <li><a>Special Offer</a></li>
                 <li><a>Reviews</a></li>
                 <li><a>About</a></li>
-                </list>
+                </ul>
             </div>
             <div class="bottomCard">
                 <h3>Follow us</h3>
-                <list>
+                <ul>
                 <li><a><span>Instagram   </span><img src="resources/otherpng/instagram.png" alt="small android logo"></a></li>
                 <li><a><span>Twitter   </span><img src="resources/otherpng/twitter.png" alt="small ios logo"></a></li>
                 <li><a><span>YouTube   </span><img src="resources/otherpng/youtube.png" alt="small android logo"></a></li>
                 <li><a><span>Facebook   </span><img src="resources/otherpng/facebook.png" alt="small ios logo"></a></li>
-                </list>
+                </ul>
             </div>
             <div class="bottomCard">
                 <h3>Get the app</h3>
-                <list>
+                <ul>
                 <li><a><span>Android   </span><img src="resources/otherpng/android.png" alt="small android logo"></a></li>
                 <li><a><span>IOS   </span><img src="resources/otherpng/ios.png" alt="small ios logo"></a></li>
-                </list>
+                </ul>
             </div>
             <div class="bottomCard">
                 <h3>Supported Payments</h3>
-                <list>
+                <ul>
                     <li>Visa</li>
                     <li>Master Card</li>
-                </list>
+                </ul>
             </div>
             <div class="bottomCard">
                 <h3>Contacts</h3>
-                <list>
+                <ul>
                     <li><span>nys.pizza@gmail.com</span></li>
                     <li><span>0 800 51 51</span></li>
-                </list>
+                </ul>
             </div>
         </footer>
         <script src="index.js"></script>
