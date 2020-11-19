@@ -7,6 +7,10 @@
 body{
     margin: 0px;
 }
+a{
+    color:black;
+    text-decoration: none;
+}
 .welcome{
     height: 400px;
     width: 100%;
@@ -67,7 +71,7 @@ header .basket{
     border-radius: 10%;
     border: 1px solid  black;
     margin: 0px 10px;
-    background-color: rgb(175, 175, 175);
+    background-color: rgb(180, 180, 180);
     display: flex;
     justify-content: space-around;
     align-items: center;

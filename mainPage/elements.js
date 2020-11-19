@@ -1,4 +1,4 @@
-export function getProductGrid(productArray, max = 0){
+export function getProductGrid(gridName, productArray, max = 0){
     let items = ""
     if(max == 0){
         max = productArray.length
@@ -6,20 +6,23 @@ export function getProductGrid(productArray, max = 0){
     for(let i = 0; i < max; i++){
         items += getProductCard(product[i].name, product[i].ingredients)
     }
-    return `<h1>Menu</h1><div id="productGrid">${items}</div>`
+    return `<h1>${gridName}</h1><div id="productGrid">${items}</div>`
 }
 export function getProductCard(name, details){
+    let items = ""
+    for(let i = 0; i < details.length; i++){
+        if(i == 5){
+            items += `<li>...</li>`
+            break;
+        }
+        items += `<li>${details[i]}</li>`
+    }
     return `<div class="productCard">
-    <img src="styles/resources/pizza/${name}.png">
+    <img src="styles/resources/pizza/${name}.jpg" alt="pizza img ${name}">
     <div>
-        <p>${name}</p>
+        <p>Pizza ${name}</p>
         <ul>
-            <li>${details[0]}</li>
-            <li>${details[1]}</li>
-            <li>${details[2]}</li>
-            <li>${details[3]}</li>
-            <li>${details[4]}</li>
-            <li>...</li>
+            ${items}
         <ul>
     </div>
 </div>`
