@@ -1,4 +1,4 @@
-export function GETproductCard(name, ingredients){
+function getproductCard(name, ingredients){
     let items = ""
     for(let i = 0; i < ingredients.length; i++){
         if(i == 5){
@@ -18,18 +18,18 @@ export function GETproductCard(name, ingredients){
 </div>`
 }
 
-export function GETproductGrid(gridName, productArray, max = 0){
+function getproductGrid(gridName, productArray, max = 0){
     let items = ""
     if(max == 0){
         max = productArray.length
     }
     for(let i = 0; i < max; i++){
-        items += GETproductCard(product[i].name, product[i].ingredients)
+        items += getproductCard(product[i].name, product[i].ingredients)
     }
-    return `<h1>${gridName}</h1><div id="productGrid">${items}</div>`
+    return `<h1>${gridName}</h1><div class="productGrid">${items}</div>`
 }
 
-export function GEToptionalProduct(name, ingredients, price){
+function getoptionalProduct(name, ingredients, price){
     let items = ""
     for(let i = 0; i < ingredients.length; i++){
         items += `<li>${ingredients[i]}</li>`
@@ -45,3 +45,4 @@ export function GEToptionalProduct(name, ingredients, price){
         </div>
     </div>`
 }
+export {getproductCard, getproductGrid, getoptionalProduct}
