@@ -2,7 +2,9 @@ import * as myElements from "./elements.js"
 
 function drawMenu(productList){
     let page= ""
-    for(category of productList.keys()){
+    console.log(productList)
+    let categories = productList.keys()
+    for(category of categories){
         page += myElements.getproductGrid(category, category["ingredients"])
     }
     return page
