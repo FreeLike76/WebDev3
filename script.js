@@ -6,11 +6,9 @@ let mainPage = document.querySelector("#mainPage")
 
 let productList
 productPromise.then(data=>{
-    console.log("data received")
     productList = data
 }).then(()=>{
-    console.log("drawing")
-mainPage.innerHTML=builder.drawMenu(productList)
+    mainPage.innerHTML=builder.drawMenu(productList)
 })
 
 

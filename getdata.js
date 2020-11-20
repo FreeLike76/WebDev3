@@ -3,7 +3,6 @@ const test_url = "https://jsonplaceholder.typicode.com/users"
 
 function sendRequest(url){
     return fetch(url).then(response=>{
-        console.log(response.json())
         return response.json()
     })
 }
