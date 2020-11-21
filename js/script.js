@@ -11,9 +11,11 @@ productPromise.then(data=>{
 })
 
 function setPageMenu(){
+    window.scroll(0, 400)
     mainPage.innerHTML = drawMenu(menu)
 }
 function setPageProduct(id){
+    window.scroll(0, 400)
     mainPage.innerHTML = drawProduct(id, menu)
 }
 
