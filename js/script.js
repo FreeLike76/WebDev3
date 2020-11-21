@@ -6,6 +6,8 @@ let menu
 productPromise.then(data=>{
     menu = data
     mainPage.innerHTML = drawProduct("Curry", menu)
+}).catch(()=>{
+    mainPage.innerHTML="Error! Try reloading the page."
 })
 
 function setPageMenu(){

@@ -35,13 +35,13 @@ function getproductPage(name, ingredients, price){
         items += `<li>${ingredients[i]}</li>`
     }
     return `<h1>Pizza ${name}</h1>
-    <div id="optionalProduct">
+    <div id="productPage">
         <img src="style/resources/pizza/${name}.jpg">
         <div>
             <ul>
                 ${items}
             </ul>
-            <input id="buttonOrder" type="button" value="Order ${price}$" onclick="buttonOrder()">
+            <input id="buttonOrder" type="button" value="Order ${price}$" onclick="order()">
         </div>
     </div>`
 }
