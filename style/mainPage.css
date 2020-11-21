@@ -67,8 +67,6 @@
     box-shadow: 2px 2px grey;
 }
 #productPage div{
-    width: 200px;
-    height: auto;
     margin: 50px 50px;
     display: flex;
     flex-direction: column;

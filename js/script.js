@@ -5,7 +5,8 @@ let mainPage = document.querySelector("#mainPage")
 let menu
 productPromise.then(data=>{
     menu = data
-    mainPage.innerHTML = drawProduct("Curry", menu)
+    translate(menu)
+    mainPage.innerHTML = drawMenu(menu)
 }).catch(()=>{
     mainPage.innerHTML="Error! Try reloading the page."
 })

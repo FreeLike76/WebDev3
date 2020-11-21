@@ -9,8 +9,8 @@ function drawMenu(menu){
 function drawProduct(name, menu){
     let page = ""
     let thisCategory = ""
-    for(category of menu){
-        for(product of category.products){
+    for(let category of menu){
+        for(let product of category.products){
             if(product.name==name){
                 thisCategory=category.category
                 page += getproductPage(product.name, product.ingredients, product.price)
@@ -18,7 +18,7 @@ function drawProduct(name, menu){
             }
         }
     }
-    for(category of menu){
+    for(let category of menu){
         if(category.category==thisCategory){
             let similar = []
             for(product of category.products){
