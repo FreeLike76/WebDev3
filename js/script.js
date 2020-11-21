@@ -1,16 +1,18 @@
-import {productPromise} from "./getdata.js"
-import * as builder from "./mainPage/builder.js"
 
 let header = document.querySelector("header")
 let mainPage = document.querySelector("#mainPage")
 
-let productList
+let menu
 productPromise.then(data=>{
-    productList = data
-}).then(()=>{
-    mainPage.innerHTML=builder.drawMenu(productList)
+    menu = data
+    mainPage.innerHTML = drawProduct("Curry", menu)
 })
-
+function dothis(){
+    mainPage.innerHTML = drawMenu(menu)
+}
+function dothis2(id){
+    mainPage.innerHTML = drawProduct(id, menu)
+}
 
 window.addEventListener("scroll",function(){
     header.classList.toggle("fullHeader", window.scrollY >= 400)

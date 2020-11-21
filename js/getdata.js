@@ -1,4 +1,4 @@
-const server_url = "https://my-json-server.typicode.com/FreeLike76/kpi_web_3_server/data"
+const server_url = "https://my-json-server.typicode.com/FreeLike76/kpi_web_3_server/menu"
 const test_url = "https://jsonplaceholder.typicode.com/users"
 
 function sendRequest(url){
@@ -6,4 +6,5 @@ function sendRequest(url){
         return response.json()
     })
 }
-export const productPromise = sendRequest(server_url)
+
+const productPromise = sendRequest(server_url)

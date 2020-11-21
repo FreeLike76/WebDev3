@@ -7,8 +7,8 @@ function getproductCard(name, ingredients){
         }
         items += `<li>${ingredients[i]}</li>`
     }
-    return `<div class="productCard">
-    <img src="styles/resources/pizza/${name}.jpg" alt="pizza img ${name}">
+    return `<div class="productCard" id="${name} onclick="dothis2()"">
+    <img src="style/resources/pizza/${name}.jpg" alt="pizza img ${name}">
     <div>
         <p>Pizza ${name}</p>
         <ul>
@@ -18,18 +18,18 @@ function getproductCard(name, ingredients){
 </div>`
 }
 
-function getproductGrid(gridName, productArray, max = 0){
+function getproductGrid(gridName, products, max = 0){
     let items = ""
     if(max == 0){
-        max = productArray.length
+        max = products.length
     }
     for(let i = 0; i < max; i++){
-        items += getproductCard(product[i].name, product[i].ingredients)
+        items += getproductCard(products[i].name, products[i].ingredients)
     }
     return `<h1>${gridName}</h1><div class="productGrid">${items}</div>`
 }
 
-function getoptionalProduct(name, ingredients, price){
+function getproductPage(name, ingredients, price){
     let items = ""
     for(let i = 0; i < ingredients.length; i++){
         items += `<li>${ingredients[i]}</li>`
@@ -45,4 +45,3 @@ function getoptionalProduct(name, ingredients, price){
         </div>
     </div>`
 }
-export {getproductCard, getproductGrid, getoptionalProduct}
