@@ -1,6 +1,5 @@
 function drawMenu(menu){
     let page= ""
-    console.log(menu)
     for(category of menu){
         page += getproductGrid(category.category, category.products)
     }
@@ -17,6 +16,18 @@ function drawProduct(name, menu){
                 page += getproductPage(product.name, product.ingredients, product.price)
                 break
             }
+        }
+    }
+    for(category of menu){
+        if(category.category==thisCategory){
+            let similar = []
+            for(product of category.products){
+                if(product.name != name){
+                    similar.push(product)
+                }
+            }
+            page += getproductGrid("You may also like:", similar, 3)
+            break
         }
     }
     return page

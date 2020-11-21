@@ -1,16 +1,17 @@
 .productGrid{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 500px);
+    grid-template-columns: repeat(auto-fill, 440px);
     justify-content: space-around;
+    
 }
 
 
 .productCard{
     width: 400px;
     height: 200px;
-    padding: 25px;
-    margin: 25px;
+    padding: 10px;
+    margin: 10px;
     background-color: rgb(204, 205, 198);
     box-shadow: 2px 2px gray;
     display: flex;

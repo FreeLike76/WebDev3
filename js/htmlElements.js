@@ -7,7 +7,7 @@ function getproductCard(name, ingredients){
         }
         items += `<li>${ingredients[i]}</li>`
     }
-    return `<div class="productCard" id="${name} onclick="dothis2()"">
+    return `<div class="productCard" id="${name}" onclick="setPageProduct(this.id)">
     <img src="style/resources/pizza/${name}.jpg" alt="pizza img ${name}">
     <div>
         <p>Pizza ${name}</p>

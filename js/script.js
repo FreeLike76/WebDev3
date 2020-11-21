@@ -7,13 +7,14 @@ productPromise.then(data=>{
     menu = data
     mainPage.innerHTML = drawProduct("Curry", menu)
 })
-function dothis(){
+
+function setPageMenu(){
     mainPage.innerHTML = drawMenu(menu)
 }
-function dothis2(id){
+function setPageProduct(id){
     mainPage.innerHTML = drawProduct(id, menu)
 }
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function(){
     header.classList.toggle("fullHeader", window.scrollY >= 400)
 })
