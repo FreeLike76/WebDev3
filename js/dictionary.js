@@ -12,5 +12,4 @@ function translate(menu){
             }
         }
     }
-    console.log(menu)
 }

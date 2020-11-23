@@ -43,6 +43,7 @@ header{
 header #headerLogo{
     margin: 0px 10px;
     height: 80%;
+    max-height: 100px;
     opacity: 0;
 }
 .fullHeader{
@@ -148,3 +149,11 @@ footer .bottomCard ul li img{
     width: auto;
 }
 
+@media screen and (max-width: 1079px){
+    header{
+        height: auto;
+    }
+    header nav{
+        flex-direction: column;
+    }
+}

@@ -18,8 +18,8 @@
         <header>
                 <img id="headerLogo" src="style/resources/biglogo/biglogo_b.png" alt="logo black">
                 <nav>
-                    <div><a>Promo</a></div>
-                    <div onclick="setPageMenu()"><a>Menu</a></div>
+                    <div onclick="goUrl('new')"><a>New</a></div>
+                    <div onclick="goUrl('menu')"><a>Menu</a></div>
                     <div><a>Reviews</a></div>
                     <div><a href="#footer">About</a></div>
                 </nav>
@@ -31,23 +31,13 @@
                 </div>
         </header>
 
-        <div id="mainPage">
-            <h1>Promotions</h1>
-                <div id="slider">
-                    <img src="style/resources/pizza/Bavarian.jpg" class="block" alt="">
-                    <img src="style/resources/pizza/Curry.jpg" alt="">
-                    <img src="style/resources/pizza/Country.jpg" alt="">
-                    <img src="style/resources/pizza/Carbonara.jpg" alt="">
-                    <img src="style/resources/pizza/Five Cheeses.jpg" alt="">
-                    <button id="buttonRight">Next</button>
-                </div>
-        </div>
+        <div id="mainPage">Loading...</div>
         <footer id ="footer">
             <div class="bottomCard">
                 <h3>Navigation</h3>
                 <ul>
-                    <li><a>Promo</a></li>
-                    <li><a>Menu</a></li>
+                    <li onclick="goUrl('new')"><a>New</a></li>
+                    <li onclick="goUrl('menu')"><a>Menu</a></li>
                     <li><a>Reviews</a></li>
                 </ul>
             </div>
@@ -82,11 +72,11 @@
                 </ul>
             </div>
         </footer>
-        <script src="js/slider.js"></script>
         <script src="js/htmlElements.js"></script>
         <script src="js/htmlBuilder.js"></script>
         <script src="js/dictionary.js"></script>
         <script src="js/jsonReceiver.js"></script>
+        <script src="js/router.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>

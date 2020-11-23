@@ -1,7 +1,7 @@
 function drawMenu(menu){
     let page= ""
     for(category of menu){
-        page += getproductGrid(category.category, category.products)
+        page += getProductGrid(category.category, category.products)
     }
     return page
 }
@@ -13,7 +13,7 @@ function drawProduct(name, menu){
         for(let product of category.products){
             if(product.name==name){
                 thisCategory=category.category
-                page += getproductPage(product.name, product.ingredients, product.price)
+                page += getProductPage(product.name, product.ingredients, product.price)
                 break
             }
         }
@@ -26,9 +26,24 @@ function drawProduct(name, menu){
                     similar.push(product)
                 }
             }
-            page += getproductGrid("You may also like:", similar, 3)
+            page += getProductGrid("You may also like:", similar, 3)
             break
         }
     }
+    return page
+}
+
+function drawNew(menu){
+    let page = ""
+    let newArray = []
+    for(category of menu){
+        for(product of category.products){
+            if(product.isNew == 1){
+                newArray.push(product)
+            }
+        }
+    }
+    page += getNewPage(newArray)
+    page += getProductGrid("Try them", newArray)
     return page
 }
