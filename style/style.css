@@ -152,6 +152,7 @@ footer .bottomCard ul li img{
 @media screen and (max-width: 1079px){
     header{
         height: auto;
+        font-size: 3em;
     }
     header nav{
         flex-direction: column;
