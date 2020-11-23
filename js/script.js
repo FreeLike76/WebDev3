@@ -6,7 +6,6 @@ let menu
 productPromise.then(data=>{
     menu = data
     translate(menu)
-    mainPage.innerHTML = drawMenu(menu)
 }).catch(()=>{
     mainPage.innerHTML="Error! Try reloading the page."
 })
