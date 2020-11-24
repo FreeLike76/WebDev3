@@ -35,37 +35,45 @@ function transformToUrl(path){
 
 function openPage(offset=true){
     let path = readUrl()
-    if(path==""){
-        setUrl("new")
-        global_slider = setPageNew()
-    }
-    else if(path=="new"){
-        global_slider = setPageNew()
-    }
-    else if(path=="menu"){
-        setPageMenu()
-    }
-    else if(path=="cart"){
-        setPageCart()
-    }
-    else{
-        found = false
-        for(category of global_menu){
-            for(product of category.products){
-                if(transformToUrl(product.name)==path){
-                    window.innerHTML = setPageProduct(product.name)
-                    found = true
+    switch(path)
+    {
+        case "":{
+            setUrl("new")
+            global_slider = setPageNew()
+            break
+        }
+        case "new":{
+            global_slider = setPageNew()
+            break
+        }
+        case "menu":{
+            setPageMenu()
+            break
+        }
+        case "cart":{
+            setPageCart()
+            break
+        }
+        default:{
+            found = false
+            for(category of global_menu){
+                for(product of category.products){
+                    if(transformToUrl(product.name)==path){
+                        window.innerHTML = setPageProduct(product.name)
+                        found = true
+                        break
+                    }
+                }
+                if(found){
                     break
                 }
             }
-            if(found){
-                break
+            if(!found){
+                setUrl("new")
+                window.innerHTML = setPageNew()
             }
         }
-        if(!found){
-            setUrl("new")
-            window.innerHTML = setPageNew()
-        }
+        
     }
     if(offset){
         window.scroll(0, 400)
