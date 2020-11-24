@@ -47,3 +47,22 @@ function drawNew(menu){
     page += getProductGrid("Try them", newArray)
     return page
 }
+function drawCart(orderList){
+    let page= ""
+    for(let i = orderList[0].amount; i!=0; i--){
+        let sameAmount=[]
+        for(ordered of orderList){
+            if(ordered.amount<i){
+                break
+            }
+            if(ordered.amount==i){
+                sameAmount.push(ordered)
+            }
+        }
+        if(sameAmount.length>0){
+            page += getProductGrid(`Amount: ${i}`, sameAmount)
+        }
+    }
+    page += getConfirmation()
+    return page
+}

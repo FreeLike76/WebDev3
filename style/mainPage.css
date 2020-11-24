@@ -19,7 +19,6 @@
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
-
 #slider button{
     box-sizing: content-box;
     width: 50%;
@@ -40,6 +39,10 @@
 #slider button:hover{
     cursor: pointer;
     box-shadow: inset 0 -3px grey;
+}
+#slider button:active{
+    box-shadow: inset 0 -1px grey;
+    background-color: white;
 }
 
 
@@ -93,6 +96,10 @@
     align-items: flex-start;
     font-size: 0.8em;
 }
+.productCard div span{
+    font-family: Roboto, 'Times New Roman', Times, serif;
+    font-size: 0.8em;
+}
 
 
 
@@ -128,11 +135,50 @@
 #productPage div ul li{
     font-size: 1.2em;
 }
-#productPage div input{
+#producePage div p{
+    font-family: Roboto, 'Times New Roman', Times, serif;;
+}
+#productPage div button{
     height: 40px;
     width: 100%;
     font-family: Roboto, 'Times New Roman', Times, serif;
     font-size: 1.2em;
     font-weight: 800;
     cursor: pointer;
+}
+
+
+
+#confirm{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#confirm button{
+    height: 60px;
+    width: 40%;
+    margin: 5px 5% 15px 5%;
+    border: none;
+    background-color: rgb(204, 205, 198);
+    outline: none;
+    font-family: Roboto, 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+#confirm button:hover{
+cursor: pointer;
+box-shadow: inset 0 -3px black;
+}
+#confirm button:active{
+box-shadow: inset 0 -1px black;
+background-color: white;
+}
+
+@media screen and (max-width: 1079px){
+   #confirm{
+       flex-direction: column;
+   }
+   #confirm button{
+       width: 80%;
+   }
 }
