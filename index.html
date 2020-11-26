@@ -31,7 +31,28 @@
                 </div>
         </header>
 
-        <div id="mainPage">Loading...</div>
+        <div id="mainPage">
+            <h1>Creating order</h1>
+            <div id="order">
+                <form>
+                    <label for="formFitstName">First name:</label>
+                    <input id="formFitstName" required>
+
+                    <label for="formLastName">Last name:</label>
+                    <input id="formLastName" required>
+
+                    <label for="formPhone">Phone number:</label>
+                    <input id="formPhone" required pattern="[+][0-9]{12}">
+
+                    <label for="formEmail">Enter email:</label>
+                    <input id="formEmail" required pattern="[a-z]">
+                    <label for="formEmailrep">Repeat email:</label>
+                    <input id="formEmailrep" required>
+
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
         <footer id ="footer">
             <div class="bottomCard">
                 <h3>Navigation</h3>

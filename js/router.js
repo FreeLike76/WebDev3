@@ -1,26 +1,19 @@
 
-function setPageMenu(){
-    mainPage.innerHTML = drawMenu(global_menu)
+function setPageMenu(menu){
+    mainPage.innerHTML = drawMenu(menu)
 }
 
-function setPageProduct(id){
-    mainPage.innerHTML = drawProduct(id, global_menu)
+function setPageProduct(id, menu){
+    mainPage.innerHTML = drawProduct(id, menu)
 
     let buttonOrder = document.querySelector("#buttonOrder")
     buttonOrder.addEventListener("click",function(){
-        for(category of global_menu){
-            for(product of category.products){
-                if(buttonOrder.value==product.name){
-                    addCart(product, 1)
-                    break
-                }
-            }
-        }
+        addCart(buttonOrder.value, 1)
     })
 }
 
-function setPageNew(){
-    mainPage.innerHTML = drawNew(global_menu)
+function setPageNew(menu){
+    mainPage.innerHTML = drawNew(menu)
 
     let buttonNext = document.querySelector("#buttonNext")
     buttonNext.addEventListener("click",function(){
@@ -39,12 +32,30 @@ function setPageNew(){
     return 0
 }
 
-function setPageCart(){
-    orderList = loadCart()
-    if(orderList.length  > 0){
-        orderList.sort((first, second)=>{
+function setPageCart(menu){
+    cart = loadCart()
+    if(cart){
+        cart.sort((first, second)=>{
             return second.amount - first.amount
         })
+        let orderList=[]
+        for(item of cart){
+            let found = false
+            for(category of menu){
+                for(product of category.products){
+                    if(item.name==product.name){
+                        orderList.push(Object.assign({}, product, item))
+                        found = true
+                    }
+                    if(found){
+                        break
+                    }
+                }
+                if(found){
+                    break
+                }
+            }
+        }
         mainPage.innerHTML = drawCart(orderList)
 
         let buttonAccept = document.querySelector("#acceptOrder")

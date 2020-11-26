@@ -14,7 +14,7 @@ productPromise.then(data=>{
     global_menu = data
     translate(global_menu)
     refreshCart()
-    openPage(false)
+    //openPage(false)
 }).catch(()=>{
     mainPage.innerHTML="Error! Try reloading the page."
 })
@@ -39,19 +39,19 @@ function openPage(offset=true){
     {
         case "":{
             setUrl("new")
-            global_slider = setPageNew()
+            global_slider = setPageNew(global_menu)
             break
         }
         case "new":{
-            global_slider = setPageNew()
+            global_slider = setPageNew(global_menu)
             break
         }
         case "menu":{
-            setPageMenu()
+            setPageMenu(global_menu)
             break
         }
         case "cart":{
-            setPageCart()
+            setPageCart(global_menu)
             break
         }
         default:{
@@ -59,7 +59,7 @@ function openPage(offset=true){
             for(category of global_menu){
                 for(product of category.products){
                     if(transformToUrl(product.name)==path){
-                        window.innerHTML = setPageProduct(product.name)
+                        window.innerHTML = setPageProduct(product.name, global_menu)
                         found = true
                         break
                     }
@@ -70,7 +70,7 @@ function openPage(offset=true){
             }
             if(!found){
                 setUrl("new")
-                window.innerHTML = setPageNew()
+                window.innerHTML = setPageNew(global_menu)
             }
         }
         
@@ -81,13 +81,20 @@ function openPage(offset=true){
 }
 
 function refreshCart(){
-    let orderList = loadCart()
+    let cart = loadCart()
     let totalAmount = 0
     let totalPrice = 0
-    if(orderList){
-        for(ordered of orderList){
-            totalAmount+=ordered.amount
-            totalPrice+=ordered.amount * ordered.price
+    if(cart){
+        for(item of cart){
+            totalAmount+=item.amount
+            for(category of global_menu){
+                for(product of category.products){
+                    if(product.name==item.name){
+                        totalPrice+=product.price*item.amount
+                        break
+                    }
+                }
+            }
         }
     }
     orderValue.innerHTML = `${totalPrice}$`

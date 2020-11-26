@@ -11,6 +11,7 @@
 }
 #slider .block {
     width: 50%;
+    min-width: 400px;
     display: block;
     object-fit: cover;
     border-top: 2px solid grey;
@@ -22,6 +23,7 @@
 #slider button{
     box-sizing: content-box;
     width: 50%;
+    min-width: 400px;
     height: 50px;
     padding: 0px;
     border-top: 0px;
@@ -146,6 +148,11 @@
     font-weight: 800;
     cursor: pointer;
 }
+@media screen and (max-width: 1079px){
+    #productPage{
+        flex-direction: column;
+    }
+ }
 
 
 
@@ -181,4 +188,13 @@ background-color: white;
    #confirm button{
        width: 80%;
    }
+}
+
+
+
+#order form input{
+    border: 2px solid black;
+}
+#order form input:invalid{
+    border: 2px solid orange;
 }

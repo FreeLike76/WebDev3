@@ -4,25 +4,24 @@ function loadCart(){
 function saveCart(orderList){
     window.localStorage.setItem("cart",JSON.stringify(orderList))
 }
-function addCart(product, amount){
-    let orderList = loadCart()
+function addCart(productName, amount){
+    let cart = loadCart()
     let isOrdered = false
-    if(orderList){
-        for(ordered of orderList){
-            if(product.name==ordered.name){
-                ordered.amount+=amount
+    if(cart){
+        for(item of cart){
+            if(productName==item.name){
+                item.amount += amount
                 isOrdered=true
                 break
             }
         }
     }
     else{
-        orderList=[]
+        cart=[]
     }
     if(!isOrdered){
-        product.amount=amount
-        orderList.push(product)
+        cart.push({"name":productName,"amount":amount})
     }
-    saveCart(orderList)
+    saveCart(cart)
     refreshCart()
 }

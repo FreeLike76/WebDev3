@@ -52,7 +52,7 @@ function getNewPage(newArray){
     for(let i = 1; i < newArray.length; i++){
         items += `<img src="style/resources/pizza/${newArray[i].name}.jpg" alt="new ${newArray[i].name}">`
     }
-    return `<h1>New</h1>
+    return `<h1>New items on menu</h1>
     <div id="slider">
         ${items}
         <button id="buttonNext">Next</button>
