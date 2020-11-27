@@ -64,7 +64,7 @@ function setPageCart(menu){
         buttonAccept.addEventListener("click", function(){
 
         })
-        buttonClear.addEventListener("click", function(){
+        buttonClear.addEventListener("click", function clearCart(){
             saveCart("")
             goUrl("new")
             refreshCart()
@@ -73,4 +73,19 @@ function setPageCart(menu){
     else{
         mainPage.innerHTML = "Your cart is empty"
     }
+}
+function setOrderPage(){
+    let email = document.getElementById("#formEmail")
+    let confirm_email = document.getElementById("#formEmailrep");
+
+    function validatePassword(){
+    if(email.value != confirm_email.value) {
+        confirm_email.setCustomValidity("Email Don't Match");
+    } else {
+        confirm_email.setCustomValidity('');
+    }
+    }
+
+    email.onchange = validatePassword;
+    confirm_email.onkeyup = validatePassword;
 }

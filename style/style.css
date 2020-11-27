@@ -98,6 +98,14 @@ header .basket div{
     align-items: center;
    
 }
+@media screen and (max-width: 1079px){
+    .welcome img{
+        display: none;
+    }
+    header #headerLogo{
+        opacity: 1;
+    }
+}
 
 
 #mainPage{

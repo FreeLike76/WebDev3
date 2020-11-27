@@ -192,8 +192,21 @@ background-color: white;
 
 
 
+#order{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+#order form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
 #order form input{
     border: 2px solid black;
+    margin-bottom: 15px;
+    outline: none;
 }
 #order form input:invalid{
     border: 2px solid orange;
