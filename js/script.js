@@ -14,7 +14,7 @@ productPromise.then(data=>{
     global_menu = data
     translate(global_menu)
     refreshCart()
-    //openPage(false)
+    openPage(false)
 }).catch(()=>{
     mainPage.innerHTML="Error! Try reloading the page."
 })
@@ -52,6 +52,10 @@ function openPage(offset=true){
         }
         case "cart":{
             setPageCart(global_menu)
+            break
+        }
+        case "order":{
+            setOrderPage()
             break
         }
         default:{

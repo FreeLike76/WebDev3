@@ -66,3 +66,32 @@ function getConfirmation(){
     <button id="clearOrder">Clear Order</button>
     </div>`
 }
+
+function getOrderPage(){
+    return `<h1>Creating order</h1>
+    <div id="order">
+        <form>
+            <label for="formFitstName">First name:</label>
+            <input id="formFitstName" required minlength="2" maxlength="16">
+
+            <label for="formLastName">Last name:</label>
+            <input id="formLastName" required minlength="2" maxlength="16">
+
+            <label for="formPhone">Phone number (including +38):</label>
+            <input id="formPhone" required pattern="[+][0-9]{12}">
+
+            <label for="formEmail">Enter email:</label>
+            <input id="formEmail" required pattern="[a-z1-9]{8,16}[@][a-z1-9]{4,8}[.][a-z1-9]{2,8}">
+            <label for="formEmailrep">Repeat email:</label>
+            <input id="formEmailrep" required pattern="[a-z1-9]{8,16}[@][a-z1-9]{4,8}[.][a-z1-9]{2,8}">
+
+            <label for="formAddress">Address</label>
+            <input id="formAddress" required minlength="4" maxlength="32">
+
+            <label for="formDetails">Details:</label>
+            <input id="formDetails" type="textarea"  minlength="4" maxlength="64">
+
+            <button onclick="goUrl('new')">Submit</button>
+        </form>
+    </div>`
+}

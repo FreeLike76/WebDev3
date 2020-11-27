@@ -66,3 +66,7 @@ function drawCart(orderList){
     page += getConfirmation()
     return page
 }
+
+function drawOrder(){
+    return getOrderPage()
+}
