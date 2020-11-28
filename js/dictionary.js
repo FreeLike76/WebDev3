@@ -13,3 +13,5 @@ function translate(menu){
         }
     }
 }
+
+export {translate}

@@ -23,5 +23,6 @@ function addCart(productName, amount){
         cart.push({"name":productName,"amount":amount})
     }
     saveCart(cart)
-    refreshCart()
 }
+
+export {loadCart, saveCart, addCart}

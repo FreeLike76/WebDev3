@@ -1,8 +1,8 @@
 
+
 function setPageMenu(menu){
     mainPage.innerHTML = drawMenu(menu)
 }
-
 function setPageProduct(id, menu){
     mainPage.innerHTML = drawProduct(id, menu)
 
@@ -11,7 +11,6 @@ function setPageProduct(id, menu){
         addCart(buttonOrder.value, 1)
     })
 }
-
 function setPageNew(menu){
     mainPage.innerHTML = drawNew(menu)
 
@@ -33,7 +32,6 @@ function setPageNew(menu){
     buttonNext.onclick = nextSlide;
     return 0
 }
-
 function setPageCart(menu){
     cart = loadCart()
     if(cart){
@@ -60,19 +58,14 @@ function setPageCart(menu){
         }
         mainPage.innerHTML = drawCart(orderList)
 
-        let buttonAccept = document.querySelector("#acceptOrder")
         let buttonClear = document.querySelector("#clearOrder")
-        
-        function acceptCart(){
-            goUrl("order")
-        }
+
         function clearCart(){
             saveCart("")
             goUrl("new")
             refreshCart()
         }
 
-        buttonAccept.onclick = acceptCart
         buttonClear.onclick = clearCart
     }
     else{

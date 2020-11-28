@@ -7,7 +7,7 @@ function getProductCard(name, ingredients, price){
         }
         items += `<li>${ingredients[i]}</li>`
     }
-    return `<div class="productCard" id="${name}" onclick="goUrl(transformToUrl(this.id))">
+    return `<div class="productCard" id="${name}" onclick="switchPage(transformToUrl(this.id))">
     <img src="style/resources/pizza/${name}.jpg" alt="pizza img ${name}">
     <div>
         <p>Pizza ${name}</p>
@@ -62,7 +62,7 @@ function getNewPage(newArray){
 function getConfirmation(){
     return `<h1>Confirmation</h1><hr>
     <div id="confirm">
-    <button id="acceptOrder">Accept Order</button>
+    <button id="acceptOrder" onclick="switchPage('order')">Accept Order</button>
     <button id="clearOrder">Clear Order</button>
     </div>`
 }
@@ -91,7 +91,8 @@ function getOrderPage(){
             <label for="formDetails">Details:</label>
             <input id="formDetails" type="textarea"  minlength="4" maxlength="64">
 
-            <button onclick="goUrl('new')">Submit</button>
+            <button onclick="switchPage('new')">Submit</button>
         </form>
     </div>`
 }
+export {getProductCard, getProductGrid, getProductPage, getNewPage, getConfirmation, getOrderPage}

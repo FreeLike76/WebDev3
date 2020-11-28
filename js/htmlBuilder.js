@@ -1,7 +1,9 @@
+import * as myElements from "./htmlElements.js"
+
 function drawMenu(menu){
     let page= ""
     for(category of menu){
-        page += getProductGrid(category.category, category.products)
+        page += myElements.getProductGrid(category.category, category.products)
     }
     return page
 }
@@ -13,7 +15,7 @@ function drawProduct(name, menu){
         for(let product of category.products){
             if(product.name==name){
                 thisCategory=category.category
-                page += getProductPage(product.name, product.ingredients, product.price)
+                page += myElements.getProductPage(product.name, product.ingredients, product.price)
                 break
             }
         }
@@ -26,7 +28,7 @@ function drawProduct(name, menu){
                     similar.push(product)
                 }
             }
-            page += getProductGrid("You may also like:", similar, 3)
+            page += myElements.getProductGrid("You may also like:", similar, 3)
             break
         }
     }
@@ -43,8 +45,8 @@ function drawNew(menu){
             }
         }
     }
-    page += getNewPage(newArray)
-    page += getProductGrid("Try them", newArray)
+    page += myElements.getNewPage(newArray)
+    page += myElements.getProductGrid("Try them", newArray)
     return page
 }
 function drawCart(orderList){
@@ -60,13 +62,15 @@ function drawCart(orderList){
             }
         }
         if(sameAmount.length>0){
-            page += getProductGrid(`Amount: ${i}`, sameAmount)
+            page += myElements.getProductGrid(`Amount: ${i}`, sameAmount)
         }
     }
-    page += getConfirmation()
+    page += myElements.getConfirmation()
     return page
 }
 
 function drawOrder(){
-    return getOrderPage()
+    return myElements.getOrderPage()
 }
+
+export {drawMenu, drawProduct, drawNew, drawCart, drawOrder}

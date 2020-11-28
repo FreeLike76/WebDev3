@@ -18,12 +18,12 @@
         <header>
                 <img id="headerLogo" src="style/resources/biglogo/biglogo_b.png" alt="logo black">
                 <nav>
-                    <div onclick="goUrl('new')"><a>New</a></div>
-                    <div onclick="goUrl('menu')"><a>Menu</a></div>
+                    <div onclick="switchPage('new')"><a>New</a></div>
+                    <div onclick="switchPage('menu')"><a>Menu</a></div>
                     <div><a>Reviews</a></div>
                     <div><a href="#footer">About</a></div>
                 </nav>
-                <div class="basket" onclick="goUrl('cart')">
+                <div class="basket" onclick="switchPage('cart')">
                     <div>
                         <span id="orderCount">0</span>
                     </div>
@@ -38,8 +38,8 @@
             <div class="bottomCard">
                 <h3>Navigation</h3>
                 <ul>
-                    <li onclick="goUrl('new')"><a>New</a></li>
-                    <li onclick="goUrl('menu')"><a>Menu</a></li>
+                    <li onclick="switchPage('new')"><a>New</a></li>
+                    <li onclick="switchPage('menu')"><a>Menu</a></li>
                     <li><a>Reviews</a></li>
                 </ul>
             </div>
@@ -74,12 +74,6 @@
                 </ul>
             </div>
         </footer>
-        <script src="js/localStorage.js"></script>
-        <script src="js/htmlElements.js"></script>
-        <script src="js/htmlBuilder.js"></script>
-        <script src="js/dictionary.js"></script>
-        <script src="js/jsonReceiver.js"></script>
-        <script src="js/router.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/router.js" type="module"></script>
     </body>
 </html>

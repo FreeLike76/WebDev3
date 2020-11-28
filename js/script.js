@@ -1,3 +1,6 @@
+import * as myHash from "./urlHash.js"
+import * as myLocalStorage from "./localStorage.js"
+
 let header = document.querySelector("header")
 let orderValue = document.querySelector("#orderValue")
 let orderCount = document.querySelector("#orderCount")
@@ -7,55 +10,46 @@ window.addEventListener("scroll", function(){
     header.classList.toggle("fullHeader", window.scrollY >= 400)
 })
 
-let global_slider = 0
-let global_menu
+let sliderConter = 0
+let menuData
 
 productPromise.then(data=>{
-    global_menu = data
-    translate(global_menu)
-    refreshCart()
-    openPage(false)
+    menuData = data
+    translate(menuData)
+    switchPage(false)
 }).catch(()=>{
     mainPage.innerHTML="Error! Try reloading the page."
 })
 
-function setUrl(path){
-    window.location.hash = path
-}
-function goUrl(path){
-    window.location.hash = path
+function switchPage(path){
+    myHash.setUrl(path)
     openPage()
-}
-function readUrl(){
-    return window.location.hash.slice(1)
-}
-function transformToUrl(path){
-    return path.toLowerCase().replaceAll(" ", "_")
+    refreshCart()
 }
 
 function openPage(offset=true){
-    let path = readUrl()
+    let path = myHash.readUrl()
     switch(path)
     {
         case "":{
-            setUrl("new")
-            global_slider = setPageNew(global_menu)
+            myHash.setUrl("new")
+            sliderConter = setPageNew(menuData)
             break
         }
         case "new":{
-            global_slider = setPageNew(global_menu)
+            sliderConter = setPageNew(menuData)
             break
         }
         case "menu":{
-            setPageMenu(global_menu)
+            setPageMenu(menuData)
             break
         }
         case "cart":{
-            setPageCart(global_menu)
+            setPageCart(menuData)
             break
         }
         case "order":{
-            setOrderPage()
+            setOrderPage(menuData)
             break
         }
         default:{
@@ -63,7 +57,7 @@ function openPage(offset=true){
             for(category of global_menu){
                 for(product of category.products){
                     if(transformToUrl(product.name)==path){
-                        window.innerHTML = setPageProduct(product.name, global_menu)
+                        window.innerHTML = setPageProduct(product.name, menuData)
                         found = true
                         break
                     }
@@ -73,8 +67,8 @@ function openPage(offset=true){
                 }
             }
             if(!found){
-                setUrl("new")
-                window.innerHTML = setPageNew(global_menu)
+                myHash.setUrl("new")
+                sliderConter = setPageNew(menuData)
             }
         }
         
@@ -85,13 +79,13 @@ function openPage(offset=true){
 }
 
 function refreshCart(){
-    let cart = loadCart()
+    let cart = myLocalStorage.loadCart()
     let totalAmount = 0
     let totalPrice = 0
     if(cart){
         for(item of cart){
             totalAmount+=item.amount
-            for(category of global_menu){
+            for(category of menuData){
                 for(product of category.products){
                     if(product.name==item.name){
                         totalPrice+=product.price*item.amount
