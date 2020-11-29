@@ -2,7 +2,7 @@ import * as myElements from "./htmlElements.js"
 
 function drawMenu(menu){
     let page= ""
-    for(category of menu){
+    for(let category of menu){
         page += myElements.getProductGrid(category.category, category.products)
     }
     return page
@@ -23,7 +23,7 @@ function drawProduct(name, menu){
     for(let category of menu){
         if(category.category==thisCategory){
             let similar = []
-            for(product of category.products){
+            for(let product of category.products){
                 if(product.name != name){
                     similar.push(product)
                 }
@@ -38,8 +38,8 @@ function drawProduct(name, menu){
 function drawNew(menu){
     let page = ""
     let newArray = []
-    for(category of menu){
-        for(product of category.products){
+    for(let category of menu){
+        for(let product of category.products){
             if(product.isNew == 1){
                 newArray.push(product)
             }
@@ -53,7 +53,7 @@ function drawCart(orderList){
     let page= ""
     for(let i = orderList[0].amount; i!=0; i--){
         let sameAmount=[]
-        for(ordered of orderList){
+        for(let ordered of orderList){
             if(ordered.amount<i){
                 break
             }

@@ -7,8 +7,8 @@ function getProductCard(name, ingredients, price){
         }
         items += `<li>${ingredients[i]}</li>`
     }
-    return `<div class="productCard" id="${name}" onclick="switchPage(transformToUrl(this.id))">
-    <img src="style/resources/pizza/${name}.jpg" alt="pizza img ${name}">
+    return `<div class="productCard">
+    <img id="${name}" src="style/resources/pizza/${name}.jpg" alt="pizza img ${name}">
     <div>
         <p>Pizza ${name}</p>
         <span>${price}$</span>
@@ -62,7 +62,7 @@ function getNewPage(newArray){
 function getConfirmation(){
     return `<h1>Confirmation</h1><hr>
     <div id="confirm">
-    <button id="acceptOrder" onclick="switchPage('order')">Accept Order</button>
+    <button id="acceptOrder">Accept Order</button>
     <button id="clearOrder">Clear Order</button>
     </div>`
 }
@@ -77,13 +77,11 @@ function getOrderPage(){
             <label for="formLastName">Last name:</label>
             <input id="formLastName" required minlength="2" maxlength="16">
 
-            <label for="formPhone">Phone number (including +38):</label>
-            <input id="formPhone" required pattern="[+][0-9]{12}">
+            <label for="formPhone">Phone number:</label>
+            <input id="formPhone" required pattern="[+][0-9]{12}" placeholder="+38---">
 
             <label for="formEmail">Enter email:</label>
-            <input id="formEmail" required pattern="[a-z1-9]{8,16}[@][a-z1-9]{4,8}[.][a-z1-9]{2,8}">
-            <label for="formEmailrep">Repeat email:</label>
-            <input id="formEmailrep" required pattern="[a-z1-9]{8,16}[@][a-z1-9]{4,8}[.][a-z1-9]{2,8}">
+            <input id="formEmail" required pattern="[a-z1-9]{6,16}[@][a-z1-9]{4,8}[.][a-z1-9]{2,8}"placeholder="example@gmail.com">
 
             <label for="formAddress">Address</label>
             <input id="formAddress" required minlength="4" maxlength="32">
@@ -91,7 +89,7 @@ function getOrderPage(){
             <label for="formDetails">Details:</label>
             <input id="formDetails" type="textarea"  minlength="4" maxlength="64">
 
-            <button onclick="switchPage('new')">Submit</button>
+            <button id="formSubmit">Submit</button>
         </form>
     </div>`
 }

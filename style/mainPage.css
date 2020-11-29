@@ -92,15 +92,15 @@
     justify-content: space-around;
     align-items: center;
 }
-.productCard:hover{
-    cursor: pointer;
-}
 .productCard img{
     height: 146px;
     width: auto;
     border: 2px solid white;
     border-radius: 10%;
     box-shadow: 2px 2px grey;
+}
+.productCard img:hover{
+    cursor: pointer;
 }
 .productCard div{
     height: 150px;

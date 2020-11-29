@@ -1,63 +1,66 @@
+import {productPromise} from "./jsonReceiver.js"
+import {translate} from "./dictionary.js"
+import {refreshCart} from "./cart.js"
 import * as myHash from "./urlHash.js"
 import * as myLocalStorage from "./localStorage.js"
+import * as myPageSetter from "./pageSetter.js"
+
 
 let header = document.querySelector("header")
-let orderValue = document.querySelector("#orderValue")
-let orderCount = document.querySelector("#orderCount")
+let cart = document.querySelector("#cart")
 let mainPage = document.querySelector("#mainPage")
 
-window.addEventListener("scroll", function(){
-    header.classList.toggle("fullHeader", window.scrollY >= 400)
-})
-
-let sliderConter = 0
+let sliderCounter = 0
 let menuData
+
 
 productPromise.then(data=>{
     menuData = data
     translate(menuData)
-    switchPage(false)
+    openPage(false)
+    refreshCart(menuData)
 }).catch(()=>{
     mainPage.innerHTML="Error! Try reloading the page."
 })
 
+
+
 function switchPage(path){
     myHash.setUrl(path)
     openPage()
-    refreshCart()
+    refreshCart(menuData)
 }
-
 function openPage(offset=true){
     let path = myHash.readUrl()
     switch(path)
     {
         case "":{
             myHash.setUrl("new")
-            sliderConter = setPageNew(menuData)
+            myPageSetter.setPageNew(menuData)
             break
         }
         case "new":{
-            sliderConter = setPageNew(menuData)
+            myPageSetter.setPageNew(menuData)
             break
         }
         case "menu":{
-            setPageMenu(menuData)
+            myPageSetter.setPageMenu(menuData)
             break
         }
         case "cart":{
-            setPageCart(menuData)
+            myPageSetter.setPageCart(menuData)
             break
         }
         case "order":{
-            setOrderPage(menuData)
+            myPageSetter.setPageOrder(menuData)
             break
         }
         default:{
-            found = false
-            for(category of global_menu){
-                for(product of category.products){
-                    if(transformToUrl(product.name)==path){
-                        window.innerHTML = setPageProduct(product.name, menuData)
+            let found = false
+            for(let category of menuData){
+                for(let product of category.products){
+                    if(myHash.transformToUrl(product.name)==path){
+                        myPageSetter.setPageProduct(product.name, menuData)
                         found = true
                         break
                     }
@@ -68,33 +71,68 @@ function openPage(offset=true){
             }
             if(!found){
                 myHash.setUrl("new")
-                sliderConter = setPageNew(menuData)
+                myPageSetter.setPageNew(menuData)
             }
         }
-        
     }
     if(offset){
         window.scroll(0, 400)
     }
 }
 
-function refreshCart(){
-    let cart = myLocalStorage.loadCart()
-    let totalAmount = 0
-    let totalPrice = 0
-    if(cart){
-        for(item of cart){
-            totalAmount+=item.amount
-            for(category of menuData){
-                for(product of category.products){
-                    if(product.name==item.name){
-                        totalPrice+=product.price*item.amount
-                        break
-                    }
-                }
-            }
+
+window.addEventListener("scroll", headerScroll)
+
+header.addEventListener("click", headerClick)
+
+cart.addEventListener("click", showCart)
+
+mainPage.addEventListener("click", mainPageClick)
+
+
+function headerScroll(){
+    header.classList.toggle("fullHeader", window.scrollY >= 400)
+}
+function headerClick(e){
+    if (e.target && e.target.matches("#navNew")) {
+        switchPage("new")
+    }
+    else if (e.target && e.target.matches("#navMenu")) {
+        switchPage("menu")
+    }
+    else if (e.target && e.target.matches("#cart")) {
+        switchPage("cart")
+    }
+}
+function showCart(){
+    switchPage("cart")
+}
+function mainPageClick(e) {
+    if(e.target && e.target.matches("div.productCard img")){
+        switchPage(myHash.transformToUrl(e.target.id))
+    }
+    else if(e.target && e.target.matches("button#buttonNext")){
+        let slider = document.querySelector("#slider")
+        let imagesArray = slider.querySelectorAll("img")
+        ++sliderCounter
+        if (sliderCounter >= imagesArray.length) {
+            imagesArray[sliderCounter-1].classList.remove("block");
+            sliderCounter = 0;
+            imagesArray[sliderCounter].classList.add("block");
+        } else {
+            imagesArray[sliderCounter-1].classList.remove("block");
+            imagesArray[sliderCounter].classList.add("block");
         }
     }
-    orderValue.innerHTML = `${totalPrice}$`
-    orderCount.innerHTML = totalAmount
+    else if (e.target && e.target.matches("button#buttonOrder")) {
+        myLocalStorage.addCart(e.target.value, 1)
+        refreshCart(menuData)
+    }
+    else if(e.target && e.target.matches("button#clearOrder")){
+        myLocalStorage.saveCart("")
+        switchPage("new")
+    }
+    else if(e.target && e.target.matches("button#acceptOrder")){
+        switchPage("order")
+    }
 }

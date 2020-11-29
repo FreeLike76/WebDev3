@@ -8,7 +8,7 @@ function addCart(productName, amount){
     let cart = loadCart()
     let isOrdered = false
     if(cart){
-        for(item of cart){
+        for(let item of cart){
             if(productName==item.name){
                 item.amount += amount
                 isOrdered=true

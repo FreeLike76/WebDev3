@@ -18,12 +18,12 @@
         <header>
                 <img id="headerLogo" src="style/resources/biglogo/biglogo_b.png" alt="logo black">
                 <nav>
-                    <div onclick="switchPage('new')"><a>New</a></div>
-                    <div onclick="switchPage('menu')"><a>Menu</a></div>
-                    <div><a>Reviews</a></div>
-                    <div><a href="#footer">About</a></div>
+                    <div id="navNew">New</div>
+                    <div id="navMenu">Menu</div>
+                    <div>Reviews</div>
+                    <div>About</div>
                 </nav>
-                <div class="basket" onclick="switchPage('cart')">
+                <div id="cart">
                     <div>
                         <span id="orderCount">0</span>
                     </div>
@@ -38,8 +38,8 @@
             <div class="bottomCard">
                 <h3>Navigation</h3>
                 <ul>
-                    <li onclick="switchPage('new')"><a>New</a></li>
-                    <li onclick="switchPage('menu')"><a>Menu</a></li>
+                    <li><a>New</a></li>
+                    <li><a>Menu</a></li>
                     <li><a>Reviews</a></li>
                 </ul>
             </div>
@@ -74,6 +74,6 @@
                 </ul>
             </div>
         </footer>
-        <script src="js/router.js" type="module"></script>
+        <script src="js/script.js" type="module"></script>
     </body>
 </html>
