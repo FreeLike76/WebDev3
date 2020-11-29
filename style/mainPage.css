@@ -242,3 +242,11 @@ background-color: white;
 #order form input:invalid{
     border: 2px solid orange;
 }
+@media screen and (max-width: 1079px){
+    #order{
+        font-size: 2em;
+    }
+    #order form input{
+        height: 2em;
+    }
+ }
