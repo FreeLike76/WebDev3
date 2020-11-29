@@ -99,12 +99,7 @@ header nav div:hover{
    
 }
 @media screen and (max-width: 1079px){
-    .welcome img{
-        display: none;
-    }
-    header #headerLogo{
-        opacity: 1;
-    }
+    
 }
 
 
@@ -158,14 +153,18 @@ footer .bottomCard ul li img{
 }
 
 @media screen and (max-width: 1079px){
+    .welcome img{
+        display: none;
+    }
     header{
         height: auto;
         font-size: 3em;
-    }
-    header{
         flex-direction: column;
     }
-    header .basket{
+    header #headerLogo{
+        opacity: 1;
+    }
+    header #cart{
         margin:10px 0px;
     }
 }
