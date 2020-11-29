@@ -162,6 +162,15 @@
 #producePage div p{
     font-family: Roboto, 'Times New Roman', Times, serif;;
 }
+#productPage div input{
+    height: 20px;
+    width: 2em;
+    font-family: Roboto, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom:5px;
+}
 #productPage div button{
     height: 40px;
     width: 100%;

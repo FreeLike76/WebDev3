@@ -125,7 +125,14 @@ function mainPageClick(e) {
         }
     }
     else if (e.target && e.target.matches("button#buttonOrder")) {
-        myLocalStorage.addCart(e.target.value, 1)
+        let counter = document.querySelector("#buttonOrderCounter")
+        let amount = parseInt(counter.value)
+        console.log(amount)
+        if(amount < 1 || amount > 10){
+            counter.value = 1
+            amount = 1
+        }
+        myLocalStorage.addCart(e.target.value, amount)
         refreshCart(menuData)
     }
     else if(e.target && e.target.matches("button#clearOrder")){

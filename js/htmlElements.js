@@ -43,6 +43,7 @@ function getProductPage(name, ingredients, price){
                 ${items}
             </ul>
             <p>Weight: 0.45 kg</p>
+            <input id="buttonOrderCounter" type="number" min="1" max ="10" value="1">
             <button id="buttonOrder" value="${name}">Order ${price}$</button>
         </div>
     </div>`
