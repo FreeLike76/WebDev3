@@ -80,6 +80,7 @@ function openPage(offset=true){
     }
 }
 
+window.addEventListener("hashchange", ()=>{openPage(false)})
 
 window.addEventListener("scroll", headerScroll)
 
